@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>welcome your coming</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.js"></script> 
+	<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+	<script>
+	$(function(){
+		function background(){	
+			'use strict';
+      	jQuery('body').backstretch([
+	        "images/bg1.jpg",
+	        "images/bg2.jpg",
+	        "images/bg3.jpg"
+	    ], {duration: 5000, fade: 500, centeredY: true });
+      }
+	
+
+      	$("form input:lt(4),textarea").mouseover(function(){
+      		$(this).addClass("Mover");
+      	}).mouseout(function(){
+      		$(this).removeClass("Mover");
+      	});
+
+
+
+
+
+
+
+     $("form input:eq(0)").blur(function(){
+     	if($(this).val()==""){
+     		$(this).css("border-color","red");
+     		$(this).next().text("名称不能为空");
+     	}
+     	else if($(this).val()!==""){
+     		$(this).css("border-color","green");
+     		$(this).next().text(" ");
+     	}
+     }) 	
+
+     $("form input:eq(1)").blur(function(){
+     	if($(this).val()==""){
+     		$(this).css("border-color","red");
+     		$(this).next().text("手机号码不能为空");
+     	}
+     	else if($(this).val()!==""){
+     		$(this).css("border-color","green");
+     		$(this).next().text(" ");
+     	}
+     }) 	
+
+     var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+   	 $("form input:eq(2)").blur(function(){
+     	if($(this).val()==""){
+     		$(this).css("border-color","red");
+     		$(this).next().text("email不能为空");
+     	}
+
+     	else if(reg.test($(this).val()) == false){
+     				$(this).next().text("email格式不正确");
+     				$(this).css("border-color","red");
+     			}
+     			else{
+     			 $(this).css("border-color","green");
+     			 $(this).next().text(" ");
+     			}
+     }) 
+
+      $("form textarea").blur(function(){
+     	if($(this).val()==""){
+     		$(this).css("border-color","red");
+     		$(this).next().text("介绍不能为空");
+     	}
+     	else if($(this).val()!==""){
+     		$(this).css("border-color","green");
+     		$(this).next().text("");
+     	}
+     }) 
+      $(".table").hide();
+      $(".ask button").click(function(){
+      	$(".ask").slideUp("slow");
+      	$(".table").slideDown("slow");
+      })
+     background();
+      });
+    </script>
+
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+		}
+		body{
+			height: 700px;
+			opacity: 0.9
+		}
+		input{  
+				    background:none;  
+				    outline:none;  
+				    border:none;
+				    border:1px solid #C0C0C0;
+				}
+		div.table{
+			width: 60%;
+			height: 95%;
+			text-align: center;
+			margin: 0px auto;
+			margin-top: 50px;
+			background-color: #fff;
+			border-radius: 10px;
+		}
+		
+		h1{
+			margin-top: 15px;
+			padding: 20px 0 20px;
+			font-size: 48px;
+		}
+		hr{
+			width: 350px;
+			margin: 0px auto;
+			margin-top: 5px;
+			/*修饰hr*/#F7F1EE
+			opacity: 0.9;	
+			border-top: 2px solid #000;
+			border-bottom: 4px solid skyblue;
+		}
+		form{
+			width: 100%;
+			height: 70%;
+			margin-top: 50px;
+		}
+		form input[type="text"]{
+			padding:10px 20px 10px;
+			width: 70%;
+			height: 4%;
+			margin-top: 15px;
+		}
+		form input::placeholder{
+			font-size: 18px;
+			word-spacing: 5px;
+			letter-spacing: 2px;
+			text-transform: capitalize;
+		}
+		form textarea{
+			width: 70%;
+			height: 20%;
+			padding: 20px 21px 10px;
+			margin-top: 20px;
+			resize: none;
+			overflow:hidden;
+		}
+		form textarea::placeholder{
+			font-size: 18px;
+			text-transform: capitalize;
+			font-weight: bold;
+			word-spacing: 5px;
+			letter-spacing: 2px;
+		}
+		input[type="submit"]{
+			width: 15%;
+			height: 10%;
+			color: #fff;
+			background-color: #000;
+			border-radius: 20px;
+			cursor: pointer;
+			margin-top: 1%;
+			font-size: 18px;
+			font-weight: bold;
+			opacity: 0.6;
+			transition: 0.5s;
+		}
+		.Mover{
+			border-color: #34B3FF;
+			transition: 0.5s;
+		}
+		p{
+			content: "";
+			width: 70%;
+			color: red;
+			font-size: 12px;
+			font-family: sans-serif;
+			margin: 0px auto;
+			text-align: left;
+		}
+		input[type="submit"]:hover{
+			width: 15%;
+			height: 10%;
+			color: #fff;
+			background-color: skyblue;
+			opacity: 1;
+		}
+		 .nav{
+			width: 100%;
+			height: 50px;
+			background: black;
+			opacity: 0.6;
+		}
+
+		.ask {
+			width: 60%;
+			height:155px;
+			background: #fff;
+			margin: 0px auto;
+			border-radius: 10px 10px 0 0;
+		}
+		
+		.ask h1{
+			text-align: center;
+		}
+		.ask button{
+			width: 100px;
+			height: 50px;
+			border: 4px solid black;
+			margin-left: 43%;
+			text-align: center;
+			font-weight: bold;
+		}
+		.ask button:hover{
+			background: skyblue;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="nav" style="background: #000;opacity: 0.6;">
+				<iframe src="head-nav.html" width="100%"; height="94px" frameborder="0" scrolling="no" name="headFrame"></iframe>
+	</div>
+
+	<div class="ask"><h1>你愿意加入我们吗？</h1><button id="btn">SURE!</button></div>
+
+	<div class="table">
+	<h1>join us</h1>
+	<hr>
+	<form action="">
+		<input type="text" placeholder="your name">
+		<p> </p>
+		<input type="text" placeholder="your phone">
+		<p> </p>
+		<input type="text" placeholder="your email">
+		<p> </p>
+		<textarea name="" id="" cols="30" rows="5" placeholder="your message"></textarea>
+		<p></p>
+		<br>
+		<input type="submit" value="send">
+	</form>
+	
+	</div>
+</body>
+</html>

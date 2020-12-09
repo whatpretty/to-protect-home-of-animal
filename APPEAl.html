@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>APPEAL</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+
+	<script src="js/jquery.js"></script> 
+	<script src="js/backstretch.min.js"></script>
+
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		body{
+			width: 100%;
+			height: 1000px;
+		}
+		iframe{
+				width: 100%;
+				height: 1000px;
+		}
+		.content{
+			width: 90%;
+			height: 100%;
+			margin: 0px auto;
+			display: flex;
+			flex-direction: row;
+			align-items:center;
+			justify-content:space-between;
+		}
+		.picture{
+			width: 100%;
+			height: 632px;
+			position: relative;
+		}
+		.content .picture div.text{
+			width: 80%;
+			height: 80%;
+			opacity: 0.8;
+			background-color: skyblue;
+			position: absolute;
+			top: 4%;
+			left: 4%;
+			opacity: 0;
+			transition: 1s;
+		}
+		.content .picture div.text:hover{
+			opacity: 0.7;
+		}
+		.content .picture div.text div{
+			width: 50%;
+			margin: 0px auto;
+			margin-top: 20%;
+		}
+		.content .picture div.text div h2{
+			letter-spacing: 5px;
+			width: 300px;
+		}
+		.content-text{
+			width: 100%;
+			background: #000;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.6;
+		}
+		.footer-window{
+			width: 100%;
+			height: 150px;
+			background: black;
+		}
+		.footer-window .window-content{
+			width: 60%;
+			height: 130px;
+		}
+		.footer-window .window-content p{
+			color: gray;
+			font-size: 12px;
+			word-spacing: 3px;
+			letter-spacing: 5px;
+		}
+		.footer-window .window-content p a{
+			text-decoration: none;
+			color: gray;
+		}
+		.footer-window .window-content p a:hover{
+			color: #fff;
+		}
+		.nav{
+			width: 100%;
+			height: 50px;
+			background: black;
+			opacity: 0.8;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="nav">
+				<iframe src="head-nav.html" width="100%"; height="94px" frameborder="0" scrolling="no" name="headFrame" ></iframe>
+			</div>
+	<div class="content">
+			<div class="picture " id="one">
+				<div class="pic"><img src="images/海洋污染.jpg" alt=""></div>
+				<div class="text"><div><h1>中国海域的</h1><h1>塑料垃圾真</h1><h2>的是世界第一么？</h2></div></div>
+			</div>
+
+			<div class="picture two" id="two">
+				<div class="pic"><img src="images/whoareyou.jpg" alt=""></div>
+				<div class="text"><div><h2 style="width: 150px;">你还在担心北极冰雪融化？  </h2><h1>真正可怕的是南极也在融化！南极的冰量几乎是北极的10倍！</h1></div></div>
+			</div>
+
+			<div class="picture" id="three">
+				<div class="pic"><img src="images/灭绝.jpg" alt=""></div>
+				<div class="text"><div><h1>又一个动物灭绝了！人类还要灭绝多少动物才肯罢手？ </h1></div></div>
+			</div>
+	</div>
+
+<!-- 				<div class="container">
+					<iframe src="text1.html" frameborder="0" width="100%" height="100%" ></iframe>
+				</div> -->
+
+	<div class="footer-window">
+			<div class="window-content">
+				<p > 素材来自:</p>
+				<br>
+				<p>搜狐新闻：冰川融化<a href="https://www.sohu.com/a/245865842_99911771" target="block">https://www.sohu.com/a/245865842_99911771/</a></p>
+				<p>百度百科：海洋污染<a href="https://baike.baidu.com/tashuo/browse/content?id=69510a16eb92341b68c4ecb8&lemmaId=2444685&fromLemmaModule=pcRight" target="block">https://baike.baidu.com/tashuo/browse/content?id=69510a16eb92341b68c4ecb8&lemmaId=2444685&fromLemmaModule=pcRight</a></p>
+				<p>人民日报：濒危动物<a href="http://baijiahao.baidu.com/s?id=1601155539455284561&wfr=spider&for=pc"></a>http://baijiahao.baidu.com/s?id=1601155539455284561&wfr=spider&for=pc</p>
+			</div>
+		</div>
+
+	<script>
+	$(function(){
+
+		function background(){
+				'use strict';
+      	jQuery('body').backstretch([
+	        "images/bg1.jpg",
+	        "images/bg2.jpg",
+	        "images/bg3.jpg"
+	    ], {duration: 5000, fade: 500, centeredY: true });
+}
+		
+
+		$("#one").on("click",function(){
+			window.open('https://baike.baidu.com/tashuo/browse/content?id=69510a16eb92341b68c4ecb8&lemmaId=2444685&fromLemmaModule=pcRight');
+		})
+		$("#two").on("click",function(){
+			window.open('http://www.sohu.com/a/339119208_100134398');
+		})
+		$("#three").on("click",function(){
+			window.open('text1.html');
+			 // $("body").html("<div><iframe src="+'text1.html'+" frameborder="+'0'+" ></iframe></div>");
+		})
+	background();
+	})
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/iconfont.css">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		body{
+			width: 100%;
+			height: 80px;
+		}
+		ul{
+			margin-top: 15px;
+		}
+		ul li{
+			list-style-type:none;
+		}
+		a{
+			text-decoration: none;
+			font-weight: bold;
+			color: skyblue;
+			font-size: 17px;
+		}
+		li{
+			float: left;
+			margin-left: 20px;
+			position: relative;
+		}
+		i{
+			background-color: red;
+		}
+		p{
+			display: inline;
+			font-size: 20px;
+			line-height: 20px;
+			color: skyblue;
+			font-weight: bold;
+		}
+		.nav_name{
+			float: left;
+			text-align: center;
+			margin-top: 15px;
+			margin-left: 15%;
+		}
+		.header_nav{
+			float: right;
+			margin-right: 50px;
+		}
+		 /*利用:before实现下划线宽度从0-100%*/
+		    li:before {
+		      content: "";
+		      position: absolute;
+		      top: 0;
+		      left: 100%; /*下划线从右侧开始显示*/
+		      width: 0;
+		      height: 100%;
+		      border-bottom: 4px solid skyblue;
+		      transition: 0.4s all linear; /*动画效果*/
+		    }
+		    li:hover:before {
+		      left: 0; /*鼠标滑过时，下划线从右向左移动*/
+		      width: 100%; /*同时，下划线宽度从0-100%*/
+		    }
+		    li:hover ~ li:before { /*~ 选择器：查找指定元素后面的所有兄弟结点*/
+		      left: 0; /*处于hover后面元素的下划线从左侧开始显示*/
+		    }
+	</style>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+</head>
+<body>
+			<div class="nav_name clearfix">
+				<i class="iconfont">&#xe623;</i>
+				<p>Animal</p>
+				</div>	
+
+				<div class="header_nav">
+
+				<ul>
+					<a href="index.html" target="_black"><li>HOME</li></a><!-- 主页 -->
+					<a href="video.html" target="_black"><li>VIDEO</li></a><!-- 视频 -->
+					<a href="solve.html" target="_black"><li>SOLVE</li></a><!-- 解决 -->
+					<a href="APPEAl.html" target="_black"><li>APPEAL</li></a><!-- 呼吁  文章的形式-->
+					<a href="letter.html" target="_black"><li>letter</li></a><!-- 行动 -->
+					<a href="join us.html" target="_black"><li>Join us</li></a><!-- 加入我们 -->
+
+					<label for="">
+						<i class=""></i>
+					</label>
+				</ul>
+				</div>	
+</body>
+</html>

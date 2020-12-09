@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/font.css">
+	<title>letter</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		@font-face {
+		  font-family: 'FONT';
+		  src: url('./font/一米阳光.ttf');
+		}
+		p{
+			  font-family: 'FONT';
+			  font-size: 30px;
+			}
+		.letter{
+			width: 40%;
+			height: 700px;
+			padding: 50px;
+			margin:0px auto;
+			margin-top: 20px;
+			background: url(images/back.jpg);
+		}
+			#play {
+				width:500px;
+				height:300px;
+				margin:20px auto;
+				position:relative;
+				overflow:hidden;
+			}
+			#play #ul {
+				position:absolute;
+			}
+			#play #ul li {
+				float:left;
+			}
+			#play #ul li img {
+				width:500px;
+				height:300px;
+			}
+			#play button {
+				position:absolute;
+				top:120px;
+				font-size:50px;
+				display:none;
+				background: black;
+				opacity: 0.6;
+			}
+			#play #prev {
+				left:10px;
+
+			}
+			#play #next {
+				right:10px;
+			}
+				<style>
+	</style>
+
+</head>
+<body>
+
+
+	<div>
+			<div class="nav" style="background: black; opacity: 0.8; height: 50px;">
+				<iframe src="head-nav.html" width="100%"; height="94px" frameborder="0" scrolling="no" name="headFrame" ></iframe>
+			</div>
+	</div>
+	<div  class="letter" >
+		<!-- 开头 -->
+		<div>
+			<p style="text-align: left;">善良的人类:</p>
+			<p style="text-align: left; margin-left: 3em;">你们好！</p>
+			<p style="">我是自动物世界的代表，我带来了一些信息，以表示人类的生命活动已经接近让我们灭绝的程度。</p>
+		</div>
+		<!-- 轮播图 -->
+		<div id="play">
+		  <ul id="ul">
+		    <li><img src="images/animal-img/环境1.jpg"></li>
+		    <li><img src="images/animal-img/环境2.jpg"></li>
+		    <li><img src="images/animal-img/环境3.jpg"></li>
+		    <li><img src="images/animal-img/企鹅.jpeg"></li>
+		  </ul>
+
+		  <button id="prev"><img src="images/zuo.png" alt=""></button>
+		  <button id="next"><img src="images/you.png" alt=""></button>
+		</div>
+		<!-- 结尾 -->
+		<div>
+		<p>	
+		我们不想地球上只有人类这一种生物，所以恳求人类不要下毒手，给我们一条生路，我们不想吃垃圾，不想看到子女被捕杀，我们不想生活在污染的环境中，我们只想活下去。</p>
+		<br>
+		<p style="text-align: right;">来自卑微的动物</p>
+		</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.js"></script> 
+	<script src="js/backstretch.min.js"></script>
+	<script>
+		$(function(){
+			
+			jQuery('body').backstretch([
+	        "images/bg1.jpg",
+	        "images/bg2.jpg",
+	        "images/bg3.jpg"
+	    ], {duration: 5000, fade: 500, centeredY: true });
+		
+			// 获取第一张图片的节点对象
+			var firstImg = $('#ul li').first().clone();
+			// 添加到最后的位置 并设置 ul 的宽度
+			$('#ul').append(firstImg).width($('#ul li').length * $('#ul img').width());
+
+			var i = 0;
+			var imgW = $('#ul img').width();
+			var timer;
+
+			// 下一张
+			$('#next').click(function() {
+			    moveImg(++i);
+			});
+
+			// 上一张
+			$('#prev').click(function() {
+			    moveImg(--i);
+			});
+
+			// 移动到指定的图片
+			function moveImg() {
+			    // alert(num);
+
+			    // 最后一张
+			    if (i == $('#ul li').length) {
+			        $('#ul').css({
+			            left: 0
+			        })
+			        i = 1;
+			    }
+
+			    // 是第一张的时候			
+			    if (i == -1) {
+			        i = $('#ul li').length - 2;
+			        $('#ul').css({
+			            left: ($('#ul li').length - 1) * -800
+			        });
+			    }
+
+			    // 移动图片动画
+			    $('#ul').stop().animate({
+			        left: i * -imgW
+			    }, 400);
+			    console.log(i);
+			}
+
+
+			function autoPlay() {
+			    timer = setInterval(function() {
+			        i++;
+			        moveImg();
+			    }, 3000);
+			}
+
+			autoPlay();
+
+			// 鼠标移入幻灯片清除定时器
+			$('#play').mouseover(function() {
+			    $('#play button').show();
+			    clearInterval(timer)
+			}).mouseout(function() {
+			    // 鼠标离开重新播放
+			    autoPlay();
+			    $('#play button').hide();
+			})
+					})
+</script>
+
+</body>
+</html>
